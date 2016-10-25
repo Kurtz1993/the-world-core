@@ -1,6 +1,7 @@
 {
-    "name": "the-world",
-    "private": true,
-    "dependencies": {
-    }
+  "name": "the-world",
+  "private": true,
+  "dependencies": {
+    "underscore": "~1.8.3"
+  }
 }
