@@ -1,18 +1,14 @@
 (function () {
-  var ele = $('#username');
-  ele.text("Luis Hernandez");
+  var $sidebarAndWrapper = $("#sidebar,#wrapper");
 
-  var main = $('#main');
-  main.on("mouseenter", function () {
-    main.css("background-color", "#888");
-  });
-  main.on("mouseleave", function () {
-    main.css("background-color", "");
+  $("#sidebar-toggle").on("click", function () {
+    $sidebarAndWrapper.toggleClass("hide-sidebar");
+
+    if ($sidebarAndWrapper.hasClass("hide-sidebar")) {
+      $(this).text("Show Sidebar");
+    } else {
+      $(this).text("Hide Sidebar");
+    }
   });
 
-  var menuItems = $('.menu-item > a');
-  menuItems.on("click", function() {
-    var me = $(this);
-    alert(me.text());
-  });
 })();
