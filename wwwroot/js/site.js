@@ -1,13 +1,18 @@
 (function () {
-  var ele = document.getElementById('username');
-  ele.innerText = "Luis Hernandez";
+  var ele = $('#username');
+  ele.text("Luis Hernandez");
 
-  var main = document.getElementById('main');
-  main.onmouseenter = function () {
-    main.style.backgroundColor = "#888";
-  };
+  var main = $('#main');
+  main.on("mouseenter", function () {
+    main.css("background-color", "#888");
+  });
+  main.on("mouseleave", function () {
+    main.css("background-color", "");
+  });
 
-  main.onmouseleave = function () {
-    main.style.backgroundColor = "";
-  };
+  var menuItems = $('.menu-item > a');
+  menuItems.on("click", function() {
+    var me = $(this);
+    alert(me.text());
+  });
 })();
