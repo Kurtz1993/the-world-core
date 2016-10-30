@@ -23,7 +23,7 @@
 			<div>
 				<button id="sidebar-toggle">Hide Sidebar</button>
 			</div>
-            @RenderBody()
+			@RenderBody()
 		</div>
 
 		<div id="footer">
@@ -32,6 +32,9 @@
 	</div>
 
 	<script src="~/lib/jquery/dist/jquery.js"></script>
+
+	@RenderSection("scripts", false)
+
 	<script src="~/js/site.js"></script>
 </body>
 

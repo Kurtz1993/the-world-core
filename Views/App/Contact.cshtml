@@ -3,16 +3,21 @@
 <h2>Contact Me</h2>
 
 <form>
-    <label asp-for="Name">Name</label>
-    <input asp-for="Name" type="text">
+	<label asp-for="Name">Name</label>
+	<input asp-for="Name" type="text">
 
-    <label asp-for="Email">Email</label>
-    <input asp-for="Email" type="email">
+	<label asp-for="Email">Email</label>
+	<input asp-for="Email" type="email">
 
-    <label asp-for="Message">Message</label>
-    <textarea cols="40" rows="4" asp-for="Message"></textarea>
+	<label asp-for="Message">Message</label>
+	<textarea cols="40" rows="4" asp-for="Message"></textarea>
 
-    <div>
-        <input type="submit" value="Send Message">
-    </div>
+	<div>
+		<input type="submit" value="Send Message">
+	</div>
 </form>
+
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
