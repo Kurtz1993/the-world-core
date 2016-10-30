@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace TheWorld
+namespace TheWorld.Controllers.Web
 {
     public class AppController : Controller
     {
