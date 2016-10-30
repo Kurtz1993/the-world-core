@@ -1,0 +1,57 @@
+@{ ViewBag.Title = "Home Page"; }
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The World - @ViewBag.Title</title>
+	<link rel="stylesheet" href="css/site.css">
+</head>
+
+<body>
+	<div id="sidebar">
+		<img src="img/user1.jpg" alt="Profile picture" class="headshot">
+		<span id="username">Sam Hastings</span>
+		<ul class="menu">
+			<li class="active menu-item"><a href="#">Home</a></li>
+			<li class="menu-item"><a href="#">About</a></li>
+			<li class="menu-item"><a href="#">Contact</a></li>
+		</ul>
+	</div>
+
+	<div id="wrapper">
+		<div id="main">
+			<div>
+				<button id="sidebar-toggle">Hide Sidebar</button>
+			</div>
+			<h1>The World!</h1>
+			<p>This will be an awesome website soon!</p>
+
+			<form>
+				<div>
+					<label>Date</label>
+					<input type="text">
+				</div>
+				<div>
+					<label>Location</label>
+					<input type="text">
+				</div>
+
+				<div>
+					<input type="submit" value="Add">
+				</div>
+			</form>
+
+		</div>
+
+		<div id="footer">
+			&copy; 2016 The World Ltd.
+		</div>
+	</div>
+
+	<script src="lib/jquery/dist/jquery.js"></script>
+	<script src="js/site.js"></script>
+</body>
+
+</html>
