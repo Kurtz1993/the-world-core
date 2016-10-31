@@ -28,8 +28,13 @@ namespace TheWorld.Controllers.Web
         [HttpPost]
         public IActionResult Contact(ContactViewModel vm)
         {
-            var toAddress = _config["MailSettings:ToAddress"];
-            _mailService.SendMail(toAddress, vm.Email, "From The World", vm.Message);
+            if (ModelState.IsValid)
+            {
+                var toAddress = _config["MailSettings:ToAddress"];
+                _mailService.SendMail(toAddress, vm.Email, "From The World", vm.Message);
+                ModelState.Clear();
+                ViewBag.UserMessage = "Message Sent";
+            }
             return View();
         }
 
