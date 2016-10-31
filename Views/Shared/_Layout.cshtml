@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>The World - @ViewBag.Title</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="~/css/site.css">
 </head>
 
@@ -32,10 +33,9 @@
 	</div>
 
 	<script src="~/lib/jquery/dist/jquery.js"></script>
-
-	@RenderSection("scripts", false)
-
+	<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="~/js/site.js"></script>
+	@RenderSection("scripts", false)
 </body>
 
 </html>
