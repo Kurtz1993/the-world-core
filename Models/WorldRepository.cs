@@ -1,7 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace TheWorld.Models
@@ -32,6 +32,14 @@ namespace TheWorld.Models
         public IEnumerable<Trip> GetAllTripsWithStops()
         {
             return _context.Trips.ToList();
+        }
+
+        public Trip GetTripByname(string tripName)
+        {
+            return _context.Trips
+                .Include(t => t.Stops)
+                .Where(t => t.Name == tripName)
+                .FirstOrDefault();
         }
 
         public async Task<bool> SaveChangesAsync()

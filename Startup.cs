@@ -60,6 +60,7 @@ namespace TheWorld
                 config.CreateMap<TripViewModel, Trip>()
                     .ForMember(dest => dest.DateCreated, opt => opt.MapFrom(m => m.Created))
                     .ReverseMap();
+                config.CreateMap<StopViewModel, Stop>().ReverseMap();
             });
 
             if (_env.IsDevelopment())
