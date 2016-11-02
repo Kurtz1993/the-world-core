@@ -31,7 +31,7 @@ namespace TheWorld.Controllers.Api
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.Message, ex);
+                _logger.LogError($"Failed to get All Trips: {ex}");
                 return BadRequest(ex.Message);
             }
         }
