@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,6 +16,17 @@ namespace TheWorld.Models
         {
             _context = context;
             _logger = logger;
+        }
+
+        public void AddStop(string tripName, Stop newStop)
+        {
+            var trip = GetTripByname(tripName);
+
+            if (trip != null)
+            {
+                trip.Stops.Add(newStop);
+                _context.Stops.Add(newStop);
+            }
         }
 
         public void AddTrip(Trip trip)
