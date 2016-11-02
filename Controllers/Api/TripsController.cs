@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -37,15 +38,20 @@ namespace TheWorld.Controllers.Api
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] TripViewModel trip)
+        public async Task<IActionResult> Post([FromBody] TripViewModel trip)
         {
             if (ModelState.IsValid)
             {
                 var newTrip = Mapper.Map<Trip>(trip);
-                return Created($"api/trips/${trip.Name}", Mapper.Map<TripViewModel>(newTrip));
+                _repository.AddTrip(newTrip);
+
+                if (await _repository.SaveChangesAsync())
+                {
+                    return Created($"api/trips/${trip.Name}", Mapper.Map<TripViewModel>(newTrip));
+                }
             }
 
-            return BadRequest(ModelState);
+            return BadRequest("Failed to save the trip");
         }
     }
 }
