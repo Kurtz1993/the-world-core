@@ -1,7 +1,12 @@
 @model IEnumerable<TheWorld.Models.Trip>
 @{ ViewBag.Title = "Home Page"; }
 
-<div class="row">
+@section scripts {
+	<script src="~/lib/angular/angular.min.js"></script>
+	<script src="~/lib/js/theWorld.js"></script>
+}
+
+<div class="row" ng-app="theWorld">
 	<div class="col-md-6">
 		<h1>The World!</h1>
 		<p>This will be an awesome website soon!</p>

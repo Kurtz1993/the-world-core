@@ -4,7 +4,7 @@ module.exports = {
     context: path.join(process.cwd(), "scripts"),
     progress: true,
     entry: {
-        "theWorld": "./the-world.ts"
+        "the-world": "./the-world.ts"
     },
     devtool: "source-map",
     output: {

@@ -7,6 +7,10 @@
 *.userosscache
 *.sln.docstates
 
+[Tt]ypings/
+wwwroot/js/the-world.*
+wwwroot/css/the-world.css
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
