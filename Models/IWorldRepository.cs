@@ -7,6 +7,8 @@ namespace TheWorld.Models
     {
         Trip GetTripByname(string tripName);
 
+        Trip GetUserTripByname(string tripName, string username);
+
         IEnumerable<Trip> GetAllTripsWithStops();
 
         IEnumerable<Trip> GetAllTrips();
