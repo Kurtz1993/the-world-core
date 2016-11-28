@@ -4,6 +4,7 @@
 @section scripts {
 	<script src="~/lib/angular/angular.min.js"></script>
 	<script src="~/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="~/js/the-world.tpls.js"></script>
 	<script src="~/js/the-world.js"></script>
 }
 
@@ -11,9 +12,7 @@
 
 	<div ng-controller="TripsController as vm" class="col-md-6 col-md-offset-3">
 		<div class="text-danger" ng-show="vm.errorMessage" ng-bind="vm.errorMessage"></div>
-		<div ng-show="vm.isBusy" class="text-center">
-			<i class="fa fa-spinner fa-spin"></i> Loading...
-		</div>
+		<wait-cursor ng-show="vm.isBusy"></wait-cursor>
 		<table class="table table-responsive table-striped">
 			<tr ng-repeat="trip in vm.trips">
 				<td ng-bind="trip.name"></td>

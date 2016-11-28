@@ -38,7 +38,7 @@ gulp.task("sass", function() {
 
 gulp.task("bundle-tpls", function() {
     return gulp.src(config.html.src)
-        .pipe(templateCache({ module: "the-world.tpls", standalone: true, filename: "the-world.tpls.js" }))
+        .pipe(templateCache({ module: "theWorld.tpls", standalone: true, filename: "the-world.tpls.js" }))
         .pipe(gulp.dest(config.html.dest));
 });
 

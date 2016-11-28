@@ -7,6 +7,7 @@ import { TripsController } from "./trips.controller";
 angular
     .module("theWorld", [
         "ui.router",
+        "theWorld.tpls",
         services,
         simpleControls
     ])
