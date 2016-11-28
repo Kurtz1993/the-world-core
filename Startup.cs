@@ -78,6 +78,7 @@ namespace TheWorld
             {
                 factory.AddDebug(LogLevel.Error);
             }
+
             app.UseResponseCompression();
             app.UseStaticFiles();
             app.UseMvc(config =>
