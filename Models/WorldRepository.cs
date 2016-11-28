@@ -54,6 +54,13 @@ namespace TheWorld.Models
                 .FirstOrDefault();
         }
 
+        public IEnumerable<Trip> GetTripsByUsername(string username)
+        {
+            return _context.Trips
+                .Where(t=> t.UserName == username)
+                .ToList();
+        }
+
         public async Task<bool> SaveChangesAsync()
         {
             return (await _context.SaveChangesAsync()) > 0;
