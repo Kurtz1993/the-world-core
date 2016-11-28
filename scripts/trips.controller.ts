@@ -2,7 +2,7 @@ import { Inject } from "./decorators/decorators";
 
 @Inject()
 export class TripsController {
-    public name: string = "Trips";
+    public newTrip: Trip = {};
     public trips: Trip[];
 
     constructor() {
@@ -17,4 +17,9 @@ export class TripsController {
 
     /** Initializes the controller. */
     public $onInit(): void {}
+
+    /** Adds a new trip. */
+    public addTrip(): void {
+        alert(this.newTrip.name);
+    }
 }
