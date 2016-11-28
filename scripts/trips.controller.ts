@@ -1,11 +1,13 @@
 import { Inject } from "./decorators/decorators";
 
-@Inject()
+@Inject("TripService")
 export class TripsController {
     public newTrip: Trip = {};
+    public isBusy: boolean = true;
     public trips: Trip[];
+    public errorMessage: string;
 
-    constructor() {
+    constructor(private _tripService: ITripService) {
         this.trips = [{
             name: "US Trip",
             created: new Date()
@@ -16,10 +18,23 @@ export class TripsController {
     }
 
     /** Initializes the controller. */
-    public $onInit(): void {}
+    public $onInit(): void {
+        this._tripService
+            .getTrips()
+            .then((res) => {
+                angular.copy(res.data, this.trips);
+            })
+            .catch((err) => {
+                this.errorMessage = `Failed to load data: ${err.data}`;
+            })
+            .finally(() => {
+                this.isBusy = false;
+            });
+    }
 
     /** Adds a new trip. */
     public addTrip(): void {
-        alert(this.newTrip.name);
+        this.trips.push({ name: this.newTrip.name, created: new Date() });
+        this.newTrip = {};
     }
 }
