@@ -27,7 +27,8 @@ namespace TheWorld.Models
                     Email = "sam.hastings@theworld.com"
                 };
 
-                await (_userManager.CreateAsync(user, "pass.word123"));
+                await (_userManager.CreateAsync(user, "Pass.word123"));
+
             }
 
             if (!_context.Trips.Any())
