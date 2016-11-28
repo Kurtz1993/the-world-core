@@ -10,6 +10,10 @@ class TripService extends BaseService implements ITripService {
     public getTrips(): ng.IHttpPromise<Trip[]> {
         return this.get("");
     }
+
+    public addTrip(trip: Trip): ng.IHttpPromise<Trip> {
+        return this.post("", trip);
+    }
 }
 
 export { TripService };

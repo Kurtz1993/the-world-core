@@ -34,7 +34,19 @@ export class TripsController {
 
     /** Adds a new trip. */
     public addTrip(): void {
-        this.trips.push({ name: this.newTrip.name, created: new Date() });
-        this.newTrip = {};
+        this.isBusy = true;
+
+        this._tripService
+            .addTrip(this.newTrip)
+            .then((res) => {
+                this.trips.push(res.data);
+                this.newTrip = {};
+            })
+            .catch(() => {
+                this.errorMessage = "Failed to save new trip.";
+            })
+            .finally(() => {
+                this.isBusy = false;
+            });
     }
 }
