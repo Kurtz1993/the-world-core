@@ -65,7 +65,7 @@ namespace TheWorld.Controllers.Api
                         newStop.Latitude = result.Latitude;
                         newStop.Longitude = result.Longitude;
 
-                        _repository.AddStop(tripName, newStop);
+                        _repository.AddStop(tripName, newStop, User.Identity.Name);
 
                         if (await _repository.SaveChangesAsync())
                         {

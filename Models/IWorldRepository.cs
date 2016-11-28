@@ -19,6 +19,6 @@ namespace TheWorld.Models
 
         Task<bool> SaveChangesAsync();
 
-        void AddStop(string tripName, Stop newStop);
+        void AddStop(string tripName, Stop newStop, string username);
     }
 }
