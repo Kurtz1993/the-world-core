@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -42,6 +43,14 @@ namespace TheWorld
                 // Implement a real service.
             }
 
+            services.AddIdentity<WorldUser, IdentityRole>(config =>
+            {
+                config.User.RequireUniqueEmail = true;
+                config.Password.RequiredLength = 8;
+                config.Cookies.ApplicationCookie.LoginPath = "/Auth/Login";
+            })
+            .AddEntityFrameworkStores<WorldContext>();
+
             services.AddDbContext<WorldContext>();
             services.AddScoped<IWorldRepository, WorldRepository>();
             services.AddTransient<WorldContextSeedData>();
@@ -61,6 +70,11 @@ namespace TheWorld
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, WorldContextSeedData seeder, ILoggerFactory factory)
         {
+            app.UseStaticFiles();
+            app.UseResponseCompression();
+
+            app.UseIdentity();
+
             Mapper.Initialize(config =>
             {
                 config.CreateMap<TripViewModel, Trip>()
@@ -79,8 +93,6 @@ namespace TheWorld
                 factory.AddDebug(LogLevel.Error);
             }
 
-            app.UseResponseCompression();
-            app.UseStaticFiles();
             app.UseMvc(config =>
             {
                 config.MapRoute(
