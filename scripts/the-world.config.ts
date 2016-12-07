@@ -9,6 +9,12 @@ export class TheWorldConfig {
             templateUrl: "trips/trips.tpl.html"
         });
 
+        routeProvider.when("/editor", {
+            controller: "TripEditorController",
+            controllerAs: "vm",
+            templateUrl: "trip-editor/trip-editor.tpl.html"
+        });
+
         routeProvider.otherwise({ redirectTo: "/" });
     }
 }
