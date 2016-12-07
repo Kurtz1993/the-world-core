@@ -4,18 +4,10 @@ import { Inject } from "./decorators/decorators";
 export class TripsController {
     public newTrip: Trip = {};
     public isBusy: boolean = true;
-    public trips: Trip[];
+    public trips: Trip[] = [];
     public errorMessage: string;
 
     constructor(private _tripService: ITripService) {
-        this.trips = [{
-            name: "US Trip",
-            created: new Date()
-        }, {
-            name: "World Trip",
-            created: new Date()
-        }];
-
         this._tripService
             .getTrips()
             .then((res) => {
