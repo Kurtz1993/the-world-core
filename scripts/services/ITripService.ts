@@ -11,4 +11,11 @@ declare interface ITripService {
      * @returns A promise that can be resolved if the call succeeded.
      */
     addTrip(trip: Trip): ng.IHttpPromise<Trip>;
+
+    /**
+     * Gets the stops for a particular trip.
+     * @param tripName Name of the trip.
+     * @returns A promise containing a list of stops for the trip.
+     */
+    getStops(tripName: string): ng.IHttpPromise<Stop[]>;
 }
