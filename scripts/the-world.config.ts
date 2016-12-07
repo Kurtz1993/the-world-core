@@ -1,13 +1,14 @@
 import { Inject } from "./decorators/decorators";
 
-@Inject("$stateProvider", "$urlRouterProvider")
+@Inject("$routeProvider")
 export class TheWorldConfig {
-    constructor(stateProvider: ng.ui.IStateProvider, urlRouterProvider: ng.ui.IUrlRouterProvider) {
-        stateProvider
-            .state("theWorld", {
-                url: "/"
-            });
+    constructor(routeProvider: ng.route.IRouteProvider) {
+        routeProvider.when("/", {
+            controller: "TripsController",
+            controllerAs: "vm",
+            templateUrl: "trips/trips.tpl.html"
+        });
 
-        urlRouterProvider.otherwise("/");
+        routeProvider.otherwise({ redirectTo: "/" });
     }
 }
