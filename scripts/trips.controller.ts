@@ -15,10 +15,7 @@ export class TripsController {
             name: "World Trip",
             created: new Date()
         }];
-    }
 
-    /** Initializes the controller. */
-    public $onInit(): void {
         this._tripService
             .getTrips()
             .then((res) => {
