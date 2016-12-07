@@ -1,17 +1,1 @@
-(function () {
-  var $sidebarAndWrapper = $("#sidebar,#wrapper");
-  var $icon = $("#sidebar-toggle i.fa");
-
-  $("#sidebar-toggle").on("click", function () {
-    $sidebarAndWrapper.toggleClass("hide-sidebar");
-
-    if ($sidebarAndWrapper.hasClass("hide-sidebar")) {
-      $icon.removeClass("fa-chevron-left");
-      $icon.addClass("fa-chevron-right");
-    } else {
-      $icon.removeClass("fa-chevron-right");
-      $icon.addClass("fa-chevron-left");
-    }
-  });
-
-})();
+!function(){var a=$("#sidebar,#wrapper"),e=$("#sidebar-toggle i.fa");$("#sidebar-toggle").on("click",function(){a.toggleClass("hide-sidebar"),a.hasClass("hide-sidebar")?(e.removeClass("fa-chevron-left"),e.addClass("fa-chevron-right")):(e.removeClass("fa-chevron-right"),e.addClass("fa-chevron-left"))})}();

@@ -1,4 +1,5 @@
 const gulp = require("gulp");
+const uglify = require("gulp-uglify");
 const templateCache = require("gulp-angular-templatecache");
 const concat = require("gulp-concat");
 const sass = require("gulp-sass");
@@ -53,6 +54,12 @@ gulp.task("watch", ["bundle-vendors", "build-ui"], function(done) {
 gulp.task("watch-ui", ["build-ui"], function() {
     gulp.watch(config.scss.src, ["css"]);
     gulp.watch(config.html.src, ["bundle-tpls"]);
+});
+
+gulp.task("minify", ["build"], function () {
+    return gulp.src('wwwroot/js/*.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('wwwroot/js/'));
 });
 
 // Bundle all the application files.
