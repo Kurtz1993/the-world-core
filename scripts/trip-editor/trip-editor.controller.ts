@@ -6,6 +6,7 @@ export class TripEditorController {
     public errorMessage: string;
     public stops: Stop[] = [];
     public isBusy: boolean = true;
+    public newStop: Stop = {}
 
     constructor(routeParams: ng.route.IRouteParamsService, private _tripService: ITripService) {
         this.tripName = routeParams["tripName"];
