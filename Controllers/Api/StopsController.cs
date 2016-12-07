@@ -79,7 +79,7 @@ namespace TheWorld.Controllers.Api
                 _logger.LogError($"Failed to save new Stop: {ex}");
             }
 
-            return BadRequest("Failed to save new stop.");
+            return BadRequest(ModelState);
         }
     }
 }

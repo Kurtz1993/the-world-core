@@ -25,6 +25,23 @@ export class TripEditorController {
             });
     }
 
+    public addStop(): void {
+        this.isBusy = true;
+        this._tripService
+            .addStop(this.tripName, this.newStop)
+            .then((res) => {
+                this.stops.push(res.data);
+                this._showMap(this.stops);
+                this.newStop = {};
+            })
+            .catch(() => {
+                this.errorMessage = "Failed to add new stop";
+            })
+            .finally(() => {
+                this.isBusy = false;
+            });
+    }
+
     private _showMap(stops: Stop[]): void {
         if (stops && stops.length > 0) {
             let mapStops: any[] = _.map(stops, (stop) => {

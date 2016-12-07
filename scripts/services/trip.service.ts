@@ -18,6 +18,10 @@ class TripService extends BaseService implements ITripService {
     public getStops(tripName: string): ng.IHttpPromise<Stop[]> {
         return this.get(`${tripName}/stops`);
     }
+
+    public addStop(tripName: string, stop: Stop): ng.IHttpPromise<any> {
+        return this.post(`${tripName}/stops`, stop);
+    }
 }
 
 export { TripService };
